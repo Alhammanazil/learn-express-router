@@ -3,7 +3,8 @@ const router = express.Router();
 
 // Define routes
 router.get('/', (req, res) => {
-  res.send('Welcome to the movies');
+    const { username = 'No-name', token = '' } = req.cookies;
+    res.send(`Welcome to the movies, ${username}. Your token is ${token}`);
 });
 
 router.get('/create', (req, res) => {
